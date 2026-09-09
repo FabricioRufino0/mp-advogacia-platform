@@ -1,0 +1,63 @@
+---
+import { site } from '../data/site';
+import '../styles/global.css';
+const values = [
+  { number: '01', title: 'Ética', text: 'Integridade e respeito às pessoas em cada conversa e em cada decisão.' },
+  { number: '02', title: 'Compromisso', text: 'Atenção aos detalhes e dedicação para compreender cada história.' },
+  { number: '03', title: 'Transparência', text: 'Uma comunicação clara, próxima e responsável, do primeiro contato em diante.' },
+];
+---
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Conheça a identidade Marques Pimenta e João Pedro Fernandes Pimenta. Página demonstrativa de apresentação." />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="theme-color" content="#071a28" />
+    <link rel="icon" type="image/jpeg" href="/images/marca.jpg" />
+    <title>Marques Pimenta | Apresentação</title>
+  </head>
+  <body>
+    <a class="skip" href="#conteudo">Ir para o conteúdo</a>
+    <header>
+      <div class="container header-inner">
+        <a href="#inicio" class="brand" aria-label="Marques Pimenta — início"><img src="/images/marca.jpg" width="58" height="58" alt="" /><span>MARQUES PIMENTA<small>APRESENTAÇÃO INSTITUCIONAL</small></span></a>
+        <nav aria-label="Navegação principal"><a href="#sobre">Sobre</a><a href="#principios">Princípios</a><a href="#perfil">Quem está à frente</a></nav>
+        <a class="header-contact" href="#contato">Entre em contato <span aria-hidden="true">↗</span></a>
+      </div>
+    </header>
+    <main id="conteudo">
+      <section id="inicio" class="hero">
+        <div class="hero-art" aria-hidden="true"></div>
+        <div class="container hero-inner">
+          <div class="hero-copy">
+            <p class="eyebrow"><span></span> MARQUES PIMENTA</p>
+            <h1>Seu direito,<br />nosso <em>propósito.</em></h1>
+            <p class="hero-description">Toda história merece ser ouvida.<br />Conheça uma marca que tem na ética, no compromisso e na transparência os seus princípios.</p>
+            <div class="hero-actions"><a class="button gold" href="#sobre">Conheça a apresentação <span aria-hidden="true">↗</span></a><a class="text-link" href="#contato">Entre em contato</a></div>
+            <p class="demo-note">PROJETO DEMONSTRATIVO · SEM OFERTA DE SERVIÇOS JURÍDICOS</p>
+          </div>
+        </div>
+        <div class="container hero-bottom"><span>ESCUTA. RESPEITO. CLAREZA.</span><a href="#sobre">Explore a página <span aria-hidden="true">↓</span></a></div>
+      </section>
+      <section id="sobre" class="about section-light">
+        <div class="container about-grid">
+          <div><p class="eyebrow dark">A ESSÊNCIA DA MARCA</p><h2>Mais do que palavras.<br /><em>Princípios que orientam.</em></h2></div>
+          <div class="about-copy"><p class="lead">O ponto de partida é sempre uma pessoa. Sua história, suas dúvidas e aquilo que importa para ela.</p><p>A identidade Marques Pimenta nasce da valorização de relações construídas com respeito, responsabilidade e comunicação clara. Uma apresentação que coloca as pessoas no centro e os princípios à frente.</p><a class="underlined" href="#perfil">Conheça João Pedro <span aria-hidden="true">↗</span></a></div>
+        </div>
+      </section>
+      <section id="principios" class="values section-light">
+        <div class="container"><div class="section-top"><p class="eyebrow dark">O QUE NOS DEFINE</p><span class="section-index">I — PRINCÍPIOS</span></div><div class="values-grid">{values.map(value => <article class="value"><span class="number">{value.number}</span><h3>{value.title}</h3><p>{value.text}</p></article>)}</div></div>
+      </section>
+      <section id="perfil" class="profile">
+        <div class="container profile-grid">
+          <div class="portrait-frame"><img src="/images/joao-pedro.jpg" alt="João Pedro Fernandes Pimenta" width="900" height="1600" loading="lazy" /><div class="portrait-caption">JOÃO PEDRO <span>MARQUES PIMENTA</span></div></div>
+          <div class="profile-copy"><p class="eyebrow">QUEM ESTÁ À FRENTE</p><h2>João Pedro<br /><em>Fernandes Pimenta.</em></h2><div class="gold-line"></div><p class="lead">Por trás de uma marca, existe uma pessoa. E toda relação começa com uma boa conversa.</p><p>Esta página apresenta João Pedro e a identidade Marques Pimenta, reunindo os valores e a proposta visual da marca.</p><p class="profile-disclosure">Apresentação demonstrativa. João Pedro ainda não possui inscrição na OAB e não é apresentado aqui como advogado habilitado.</p><a class="text-link" href={site.whatsapp} target="_blank" rel="noopener noreferrer">Converse com João Pedro <span aria-hidden="true">↗</span></a></div>
+        </div>
+      </section>
+      <section id="contato" class="contact section-light"><div class="container contact-grid"><div><p class="eyebrow dark">VAMOS CONVERSAR</p><h2>O primeiro passo<br />é uma <em>conversa.</em></h2><p>Entre em contato diretamente com João Pedro pelo WhatsApp.</p></div><div class="contact-action"><span class="contact-label">CONTATO DIRETO</span><a class="phone" href="tel:+5561986684723">(61) 98668-4723</a><a class="button navy" href={site.whatsapp} target="_blank" rel="noopener noreferrer">Conversar pelo WhatsApp <span aria-hidden="true">↗</span></a><span class="contact-caption">O link abre uma conversa no WhatsApp.</span></div></div></section>
+    </main>
+    <footer><div class="container footer-top"><a class="brand" href="#inicio"><img src="/images/marca.jpg" width="50" height="50" alt="" /><span>MARQUES PIMENTA<small>SEU DIREITO, NOSSO PROPÓSITO.</small></span></a><a class="back-top" href="#inicio">Voltar ao início ↑</a></div><div class="container footer-bottom"><p>© {new Date().getFullYear()} Marques Pimenta. Página demonstrativa.</p><p>Sem oferta de serviços jurídicos.</p></div></footer>
+  </body>
+</html>
