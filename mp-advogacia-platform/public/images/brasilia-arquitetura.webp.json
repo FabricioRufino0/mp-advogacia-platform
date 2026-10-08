@@ -1,0 +1,6 @@
+{
+  "prompt": "Use case: precise-object-edit. Asset: wide website hero engraved illustration. Edit the supplied illustration. Replace the framing trees, leaves, palms and golden botanical clusters along the left/right edges with sparse, elegant blue engraved architectural framing: a few slim modernist vertical columns and subtle flowing arch lines inspired by Brasilia's Alvorada Palace. Remove all gold/yellow botanical accents. Keep the lower panorama of Brasilia recognizably intact: Cathedral at left, twin Congress towers and domes in the center, arched palace at right, water and landscape below. Keep the very large blank warm near-white central and upper region for website typography. Do not extend architecture into central text space. Color: monochrome dark royal blue ink #203b7e on flat near-white paper #fafaf7. Same finely hatched engraving quality as the input, restrained edges, no text, no logos, no watermark. Landscape 1536x1024 composition.",
+  "createdAt": "2026-10-04",
+  "tool": "built-in image_gen",
+  "source": "public/images/brasilia-gravura.webp"
+}

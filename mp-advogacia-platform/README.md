@@ -1,18 +1,36 @@
 # Marques Pimenta
 
-Landing page demonstrativa em Astro, com identidade azul-marinho e dourada, apresentação, princípios, perfil e contato por WhatsApp. Layout responsivo e sem JavaScript enviado ao navegador por padrão.
+Site institucional de pagina unica em React 19, Vite 8 e TypeScript. Inspirado na composicao do Engraved Illustration Landing Page Template, com azul, dourado e gravura original de Brasilia. Areas em pilares selecionaveis, FAQ expansivel e WhatsApp com a area escolhida na mensagem. Sem formulario.
 
 ## Desenvolvimento
 
-Requer Node.js 22. Execute `npm ci`, depois `npm run dev`. Para gerar a página estática, execute `npm run build`. A saída fica em `dist/` e pode ser publicada no Cloudflare Pages (comando `npm run build`, diretório `dist`).
+Node.js 22.12 ou superior. `.nvmrc` indica a linha 22.
 
-## Conteúdo
+```sh
+npm ci
+npm run dev
+```
 
-- Dados de contato: `src/data/site.ts`.
-- Página: `src/pages/index.astro`.
-- Estilos: `src/styles/global.css`.
-- Imagens fornecidas pelo cliente: `public/images/`.
+Servidor local: http://localhost:4322 . `npm run build` verifica tipos, compila os assets e pre-renderiza a home com React. `npm test` verifica o resultado de `dist/`; execute depois do build. `npm run preview` serve a build em http://localhost:4323 .
 
-João Pedro Fernandes Pimenta ainda não possui inscrição na OAB. Esta versão é demonstrativa, não oferece serviços jurídicos, não atribui habilitação profissional e inclui `noindex, nofollow`. E-mail e endereço permanecem vazios. Áreas de atuação, credenciais e demais informações não confirmadas foram omitidas.
+## Publicacao
 
-As imagens e a identidade da marca não constituem assets livres para reutilização em outros clientes. As fontes possuem alternativas locais se o Google Fonts estiver indisponível.
+No Cloudflare Pages, usar `npm run build`, diretorio `dist` e Node >=22.12. A producao e estatica, sem servidor Node. O dominio publico ainda nao foi confirmado: definir `SITE_URL` com a origem HTTPS real no ambiente de build para emitir canonical, Open Graph absoluto e `sitemap.xml`. Sem essa variavel, o build deixa esses campos ausentes e nao inventa um dominio.
+
+## Conteudo e identidade
+
+- `src/data/site.ts`: contato, advogado responsavel, areas e FAQ.
+- `src/App.tsx`: pagina e interacoes.
+- `src/styles/global.css`: tokens, estilos e breakpoints.
+- `scripts/prerender.mjs`: HTML estatico e metadados de publicacao.
+- `PRODUCT.md`, `DESIGN.md` e `.impeccable/surface.md`: briefing e direcao visual.
+
+Marques Pimenta e o nome da marca. Halson Hugo Pimenta, OAB/DF 69.858, e o advogado responsavel confirmado pelo cliente. Atendimento online em Brasilia e no Distrito Federal. A marca e as imagens originais do cliente nao sao assets livres. As fotos antigas permanecem no repositorio, mas nao sao usadas nem copiadas para a build publicada.
+
+## Referencias e assets
+
+Referencia aprovada: https://21st.dev/@kedhareswer/templates/engraved-illustration-landing-page-template . O endpoint de instalacao retornou Component not found; a implementacao adapta sua composicao visual, com codigo e ilustracao proprios, sem incorporar o SVG ou o conteudo ficticio do demo.
+
+`public/images/brasilia-justica.webp` foi editada com o image_gen integrado para incluir uma interpretacao da Justica de Brasilia, sentada com a espada no colo. A gravura foi exportada para WebP (1536 x 1024). O prompt e a origem constam em `.impeccable/assets.md` e no arquivo JSON junto ao asset. As versoes anteriores foram preservadas. `marca.jpg` e o asset pre-existente fornecido pelo cliente. Libre Baskerville e Source Sans 3 sao servidas localmente via Fontsource.
+
+O rodape adapta o [Footer 12 do Watermelon](https://ui.watermelon.sh/block/footer-12), com o codigo do registry consultado antes da implementacao. O fechamento editorial usa os contatos e a identificacao reais do escritorio. Animacoes em CSS concentram a entrada no topo e respostas curtas nos controles; teclado e movimento reduzido mantem os estados imediatos. Nenhuma biblioteca adicional foi instalada.
