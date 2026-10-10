@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { AnimatePresence, MotionConfig, motion, useReducedMotion } from 'motion/react';
-import { ArrowUp, ChevronDown, Menu, MessageCircle, X } from 'lucide-react';
+import { ArrowUp, ArrowUpRight, ArrowRight, ChevronDown, Menu, MessageCircle, X } from 'lucide-react';
 import { practices, questions, site } from './data/site';
 import BrandIntro from './BrandIntro';
 
@@ -11,8 +11,9 @@ const navItems = [
 ] as const;
 
 function WhatsAppLink({ className = '', children = 'Falar pelo WhatsApp', area }: { className?: string; children?: React.ReactNode; area?: string }) {
+  const reducedMotion = useReducedMotion();
   const href = area ? 'https://wa.me/5561986684723?text=' + encodeURIComponent(`Olá, gostaria de informações sobre o atendimento jurídico online em Direito ${area}.`) : site.whatsapp;
-  return <motion.a className={`button ${className}`} href={href} target="_blank" rel="noopener noreferrer" whileHover={{ y: -2 }} whileTap={{ scale: .98 }} transition={{ type: 'spring', stiffness: 420, damping: 28 }}><MessageCircle size={18} aria-hidden="true" />{children}</motion.a>;
+  return <motion.a className={`button ${className}`} href={href} target="_blank" rel="noopener noreferrer" whileHover={reducedMotion ? undefined : { y: -2 }} whileTap={reducedMotion ? undefined : { scale: .98 }} transition={{ type: 'spring', stiffness: 420, damping: 28 }}><MessageCircle size={18} aria-hidden="true" /><span className="button-label">{children}</span><ArrowUpRight className="button-arrow" size={18} aria-hidden="true" /></motion.a>;
 }
 
 function Header() {
@@ -26,7 +27,7 @@ function Header() {
   const closeMenu = () => { setOpen(false); menuRef.current?.focus(); };
   return <header className="site-header" onKeyDown={event => { if (event.key === 'Escape' && open) closeMenu(); }}>
     <div className="container header-inner">
-      <motion.a href="#inicio" className="brand" aria-label="Marques Pimenta, início" whileHover={reducedMotion ? undefined : { x: 2 }} transition={{ duration: .18 }}><img src="/images/marca.jpg" alt="" width="42" height="42" /><span>Marques Pimenta</span></motion.a>
+      <motion.a href="#inicio" className="brand" aria-label="Marques Pimenta, início" whileHover={reducedMotion ? undefined : { x: 2 }} transition={{ duration: .18 }}><img src="/images/marca.jpg" alt="" width="48" height="48" /><span className="brand-copy"><span className="brand-name">Marques Pimenta</span><span className="brand-description">Advocacia</span></span></motion.a>
       <nav className="main-nav desktop-nav" aria-label="Navegação principal">
         {navItems.map(item => <a key={item.href} href={item.href}>{item.label}</a>)}
       </nav>
@@ -45,38 +46,43 @@ function Header() {
 
 function PracticeSection() {
   const [active, setActive] = useState(0);
+  const [compact, setCompact] = useState(false);
   const [input, setInput] = useState<'none' | 'pointer' | 'keyboard'>('none');
   const reducedMotion = useReducedMotion();
   const tabRefs = useRef<(HTMLButtonElement | null)[]>([]);
   const activePractice = practices[active];
+  useEffect(() => {
+    const query = window.matchMedia('(max-width: 820px)');
+    const update = () => setCompact(query.matches);
+    update();
+    query.addEventListener('change', update);
+    return () => query.removeEventListener('change', update);
+  }, []);
   return <section id="areas" className="practice-section" data-motion={input}>
     <div className="container">
-      <div className="practice-heading"><span className="practice-eyebrow">Três pilares de atuação</span><h2>Áreas de atuação</h2><p>Escolha um pilar para conhecer o atendimento.</p></div>
+      <div className="practice-heading"><h2>Áreas de atuação</h2><p>Escolha uma área para conhecer o atendimento.</p></div>
       <div className="practice-layout">
-        <div className="practice-tabs" role="tablist" aria-label="Áreas de atuação" onKeyDown={event => {
-          const next = event.key === 'ArrowRight' ? (active + 1) % practices.length : event.key === 'ArrowLeft' ? (active + practices.length - 1) % practices.length : event.key === 'Home' ? 0 : event.key === 'End' ? practices.length - 1 : null;
+        <div className="practice-tabs" role="tablist" aria-label="Áreas de atuação" aria-orientation={compact ? 'horizontal' : 'vertical'} onKeyDown={event => {
+          const next = ['ArrowRight', 'ArrowDown'].includes(event.key) ? (active + 1) % practices.length : ['ArrowLeft', 'ArrowUp'].includes(event.key) ? (active + practices.length - 1) % practices.length : event.key === 'Home' ? 0 : event.key === 'End' ? practices.length - 1 : null;
           if (next !== null) { event.preventDefault(); setInput('keyboard'); setActive(next); tabRefs.current[next]?.focus(); }
         }}>
           {practices.map((practice, index) => <button key={practice.id} ref={element => { tabRefs.current[index] = element; }} id={`tab-${practice.id}`} type="button" role="tab" aria-selected={active === index} aria-controls={`panel-${practice.id}`} tabIndex={active === index ? 0 : -1} className={`practice-tab ${active === index ? 'is-selected' : ''}`} onClick={event => { if (active !== index) { setInput(event.detail > 0 ? 'pointer' : 'keyboard'); setActive(index); } }}>
-            {active === index && <motion.span className="practice-tab-surface" layoutId="practice-selection" aria-hidden="true" transition={{ duration: reducedMotion || input !== 'pointer' ? 0 : 0.22, ease: [0.23, 1, 0.32, 1] }} />}
-            <span className="practice-tab-art" aria-hidden="true"><img src="/images/pilar-gravura.webp" alt="" /></span>
+            {active === index && <motion.span className="practice-tab-surface" layoutId="practice-selection" aria-hidden="true" transition={reducedMotion || input !== 'pointer' ? { duration: 0 } : { type: 'spring', stiffness: 380, damping: 30, mass: .9 }} />}
             <span className="practice-tab-copy"><span className="practice-tab-label">{practice.label}</span><span className="practice-tab-focus">{practice.pillarFocus}</span></span>
-            <span className="practice-tab-index" aria-hidden="true">0{index + 1}</span>
+            <ArrowRight className="practice-tab-arrow" size={22} aria-hidden="true" />
           </button>)}
         </div>
         <div className="practice-content">
           <AnimatePresence initial={false} mode="wait">
             <motion.div key={activePractice.id} id={`panel-${activePractice.id}`} role="tabpanel" aria-labelledby={`tab-${activePractice.id}`} tabIndex={0} className="practice-panel"
-              initial={reducedMotion ? false : { opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={reducedMotion ? { opacity: 0 } : { opacity: 0, y: -8 }}
-              transition={{ duration: reducedMotion ? 0 : .24, ease: [0.23, 1, 0.32, 1] }}>
-              <div className="practice-panel-marker" aria-hidden="true"><span>0{active + 1}</span><i /></div>
-              <div className="practice-panel-copy"><span className="practice-panel-kicker">{activePractice.pillarFocus}</span><h3>{activePractice.title}</h3><p>{activePractice.description}</p>
+              initial={reducedMotion || input !== 'pointer' ? false : { opacity: 0, x: 14 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: reducedMotion || input !== 'pointer' ? 0 : .18, ease: [0.23, 1, 0.32, 1] }}>
+              <div className="practice-panel-copy"><h3>{activePractice.title}</h3><p>{activePractice.description}</p>
                 <ul className="practice-topics">{activePractice.topics.map(topic => <li key={topic}>{topic}</li>)}</ul>
                 <WhatsAppLink className="button-primary" area={activePractice.label}>Falar sobre este assunto</WhatsAppLink>
               </div>
-              <div className="practice-panel-art" aria-hidden="true"><img src="/images/pilar-gravura.webp" alt="" /></div>
             </motion.div>
           </AnimatePresence>
         </div>
@@ -118,6 +124,7 @@ function FAQSection() {
 }
 
 function Footer() {
+  const reducedMotion = useReducedMotion();
   return <footer id="contato" className="site-footer">
     <div className="container">
       <div className="footer-contact">
@@ -129,10 +136,24 @@ function Footer() {
         <nav className="footer-nav" aria-label="Navegação do rodapé"><a href="#escritorio">O escritório</a><a href="#areas">Áreas de atuação</a><a href="#duvidas">Dúvidas sobre atendimento</a></nav>
         <div className="footer-location"><h3>Atendimento online</h3><p>Brasília e Distrito Federal</p><a href={site.whatsapp} target="_blank" rel="noopener noreferrer">Entrar em contato</a></div>
       </div>
-      <div className="footer-wordmark" aria-hidden="true">Marques <span>Pimenta</span></div>
+      <motion.div className="footer-wordmark" aria-hidden="true" initial={false} whileInView={reducedMotion ? undefined : { clipPath: ['inset(0 0 18% 0)', 'inset(0 0 0% 0)'], y: [12, 0] }} viewport={{ once: true, amount: .6 }} transition={{ duration: .8, ease: [0.23, 1, 0.32, 1] }}>Marques <span>Pimenta</span></motion.div>
       <div className="footer-bottom"><p>© {new Date().getFullYear()} Marques Pimenta.<br />Marques Pimenta é o nome da marca.</p><a className="back-top" href="#inicio">Voltar ao início<ArrowUp size={18} aria-hidden="true" /></a></div>
     </div>
   </footer>;
+}
+
+function Hero() {
+  const reducedMotion = useReducedMotion();
+  return <section id="inicio" className="hero">
+    <motion.img className="hero-art" src="/images/brasilia-justica.webp" alt="" width="1536" height="1024" fetchPriority="high" initial={false} animate={reducedMotion ? undefined : { opacity: [.7, 1], scale: [1.025, 1] }} transition={{ duration: 1.6, delay: .7, ease: [0.23, 1, 0.32, 1] }} />
+    <motion.div className="hero-copy" initial={false} animate={reducedMotion ? undefined : { y: [12, 0] }} transition={{ duration: .8, delay: 1, ease: [0.23, 1, 0.32, 1] }}>
+      <h1>Antes de decidir,<br /><em>entenda seus direitos.</em></h1>
+      <p className="hero-lead">Uma questão de trabalho, um contrato ou uma dúvida da vida civil. Converse com a Marques Pimenta sobre a orientação jurídica de que você precisa.</p>
+      <p className="hero-location">Atendimento online em Brasília e no Distrito Federal.</p>
+      <WhatsAppLink className="button-primary" />
+      <a className="hero-explore" href="#areas">Conheça as áreas de atuação<ArrowRight size={16} aria-hidden="true" /></a>
+    </motion.div>
+  </section>;
 }
 
 export default function App() {
@@ -141,23 +162,18 @@ export default function App() {
     <a className="skip-link" href="#conteudo">Ir para o conteúdo</a>
     <Header />
     <main id="conteudo">
-      <section id="inicio" className="hero">
-        <img className="hero-art" src="/images/brasilia-justica.webp" alt="" width="1536" height="1024" fetchPriority="high" />
-        <div className="hero-copy">
-          <h1>Marques <span>Pimenta</span></h1>
-          <p className="hero-lead">Atendimento jurídico online<br />em Brasília e no Distrito Federal.</p>
-          <ul className="hero-practices"><li>Trabalhista</li><li>Empresarial</li><li>Cível</li></ul>
-          <WhatsAppLink className="button-primary" />
-          <a className="hero-explore" href="#areas">Áreas de atuação<ChevronDown size={16} aria-hidden="true" /></a>
-        </div>
-      </section>
+      <Hero />
       <section id="escritorio" className="office-section container">
-        <div className="office-copy">
-          <h2>Um espaço para entender sua questão.</h2>
-          <p>Uma dúvida no trabalho, um contrato ou uma questão da vida civil. O atendimento começa com uma conversa sobre o que aconteceu e a orientação jurídica de que você precisa.</p>
-          <p>A Marques Pimenta atende pessoas e empresas online, em Brasília e no Distrito Federal. Pelo WhatsApp, você pode pedir informações e combinar o atendimento.</p>
-          <div className="office-lawyer"><span>Advogado responsável</span><strong>{site.person}</strong><span>{site.registration}</span></div>
-          <a className="office-link" href="#areas">Conheça as áreas de atuação<ChevronDown size={18} aria-hidden="true" /></a>
+        <div className="office-layout">
+          <div className="office-heading">
+            <h2>Um espaço para entender sua questão.</h2>
+            <a className="office-link" href="#areas">Conheça as áreas de atuação<ChevronDown size={18} aria-hidden="true" /></a>
+          </div>
+          <div className="office-copy">
+            <p>Uma dúvida no trabalho, um contrato ou uma questão da vida civil. O atendimento começa com uma conversa sobre o que aconteceu e a orientação jurídica de que você precisa.</p>
+            <p>A Marques Pimenta atende pessoas e empresas online, em Brasília e no Distrito Federal. Pelo WhatsApp, você pode pedir informações e combinar o atendimento.</p>
+            <div className="office-lawyer"><span>Advogado responsável</span><strong>{site.person}</strong><span>{site.registration}</span></div>
+          </div>
         </div>
       </section>
       <PracticeSection />

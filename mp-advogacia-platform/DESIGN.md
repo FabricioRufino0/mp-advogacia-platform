@@ -99,9 +99,13 @@ components:
     padding: "20px 0"
 ---
 
-## Current composition update, 2026-10-04
+## Current composition update, 2026-10-10
 
-The user rejected the middle architectural portrait and illustrated pillars. Both are removed from the page. The office introduction is a compact text column capped at 880px, with inline lawyer identification on desktop and stacked identification on mobile. Areas adapt [Watermelon Tabs 1](https://ui.watermelon.sh/components/tabs): a segmented list with 44px minimum controls, paper selected surface, gold bottom accent, and a full-width paper content panel below. At mobile widths the list uses three equal tracks, 14px labels (13px below 360px) and compact padding. Existing native React tab semantics and keyboard navigation remain. Earlier references to illustrated columns and portrait layout describe the superseded iteration. Current review: [.impeccable/tabs-review.md](.impeccable/tabs-review.md).
+The homepage uses an editorial composition in blue, antique gold and paper. Practice selection is a vertical list of large serif labels beside a paper reading panel on desktop. At 820px and below the controls become three horizontal tracks with sans-serif labels. A gold selected surface moves with a spring adapted from [Watermelon Continuous Tabs](https://ui.watermelon.sh/animated-components/continuous-tabs); source was retrieved through its MCP. Tab orientation follows the layout, and arrow keys, Home and End preserve focus and immediate selection.
+
+Buttons have a sliding deep-blue fill and directional arrow, with keyboard focus and reduced-motion alternatives. The header is sticky. FAQ uses two columns on desktop and stacks below 820px. The hero engraving settles once after the logo intro; the footer signature reveals once when it enters view. No additional dependencies were installed.
+
+References reviewed: [21st engraved illustration template](https://21st.dev/@kedhareswer/templates/engraved-illustration-landing-page-template), [Skiper catalogue](https://skiper-ui.com/components?source=free), and [Motion accessibility](https://motion.dev/docs/react-accessibility). 21st and Skiper were reference research; no source or paid assets from those catalogues were copied.
 
 # Design System: Marques Pimenta
 
@@ -111,14 +115,14 @@ The user rejected the middle architectural portrait and illustrated pillars. Bot
 
 The engraved architectural world ties Marques Pimenta to Brasilia through blue ink, antique gold and near-white paper. Libre Baskerville gives the brand and headings a measured literary voice; Source Sans 3 keeps practical information and controls direct.
 
-The built page varies a panoramic hero, portrait introduction, architectural selector and paper reading panel, and generous single-column FAQ. Its expression is restrained (ENERGY 2 / RHYTHM 4 / MOTION 2): illustration carries identity, color carries hierarchy, and motion acknowledges interaction. Taste settings are DESIGN_VARIANCE 5 / MOTION_INTENSITY 3 / VISUAL_DENSITY 4.
+The built page varies a panoramic hero, asymmetrical office introduction, blue area-selector band with paper reading panel, and generous FAQ ledger. Its expression is restrained (ENERGY 2 / RHYTHM 4 / MOTION 2): one engraving carries the opening, architectural texture anchors the blue band, and paper sections prioritize reading. Motion acknowledges interaction. Taste settings are DESIGN_VARIANCE 5 / MOTION_INTENSITY 3 / VISUAL_DENSITY 4.
 
 **Key Characteristics:**
 
 - Blue ink and antique gold on near-white paper.
 - Serif brand and headings with sans-serif body and controls.
-- Flat bands, fine dividers and desktop pillar-shaped area tabs.
-- Compact mobile pillars and native FAQ disclosures.
+- Flat bands, fine dividers and three text-based practice tabs.
+- Paper-clear reading surfaces and an accessible FAQ ledger with restrained motion.
 - An engraved interpretation of Brasilia's seated Justice statue with a sword across her lap, explicitly requested by the user, anchors the left foreground of the hero.
 
 ## Colors
@@ -146,13 +150,15 @@ Blue ink gives the page its structure; gold is a warm contact accent against the
 - **Muted Ink:** supporting copy on light surfaces.
 - **Paper Rule:** light-surface section and FAQ dividers.
 
-**The Contact Gold Rule.** Gold marks contact actions, focus on blue surfaces and the pillar initials; blue remains the structural ink.
+**The Contact Gold Rule.** Gold marks contact actions, focus on blue surfaces and the selected tab's surface; blue remains the structural ink.
 
 ## Typography
 
 Libre Baskerville is self-hosted and backed by Georgia and serif; Source Sans 3 is self-hosted and backed by Arial and sans-serif. Headings are regular-weight and balanced. The entire brand name is upright. Hero and closing wordmark tracking is -0.025em; other roles use zero tracking.
 
-The desktop display is 76px, area heading 52px and panel heading 32px. Other section headings use 40px (office and FAQ) and 42px (footer contact). Office and panel copy use 17px; mobile copy uses 16px. The hero steps to 54px on mobile, 47px below 359px, and 48px on short mobile viewports. Mobile section headings use 28–32px. Area copy has a maximum measure of 65ch. Only actual loaded weights are used: serif 400, sans-serif 400 and 700. The decorative footer signature scales from 44px to 96px on desktop and uses two 60px lines on mobile.
+The hero display is 76px. Section headings share a 40px desktop, 34px tablet and 30px mobile scale with 1.25 line height and -0.02em tracking. Practice-panel titles use 36px desktop and 28px mobile. Reading copy is 17px desktop and 16px mobile, with 1.65 line height and a 65ch maximum. Supporting section prose is 17px desktop and 16px mobile. Body text uses pretty wrapping; the main title retains balanced wrapping. Loaded weights are Libre Baskerville 400 and Source Sans 3 400, 600 and 700; navigation, buttons and FAQ questions use 600.
+
+The header wordmark is 20px desktop, 18px tablet, 16px mobile and 14px below 360px, paired with the factual descriptor “Advocacia” in small uppercase sans-serif. The header uses an 88px desktop and 76px mobile height; its mobile menu starts below the actual header boundary. Contact is an outlined control. Office, practice and FAQ desktop columns share the .85fr / 1.4fr grid and 48px gap; office stacks below 820px. Lawyer identification is a vertically aligned group.
 
 **The Two Voices Rule.** Use Libre Baskerville for brand and headings, Source Sans 3 for body and operational controls. Mobile area tabs switch to Source Sans 3 for compact scanning.
 
@@ -160,7 +166,7 @@ The desktop display is 76px, area heading 52px and panel heading 32px. Other sec
 
 The desktop content frame caps at (1120px) with total outer subtraction (80px). The subtraction becomes (64px) at (1100px), (40px) at (820px), and (32px) below (359px). Section backgrounds span the viewport; the shared frame aligns their contents.
 
-The office uses .9fr / 1fr tracks with an 88px gap: a portrait architectural illustration and a stacked introduction with the lawyer's identification. Area selection uses the same tracks for a column gallery and a paper reading panel. Gaps compress to 48px on smaller desktop. Office content becomes one column at 820px; area content becomes one column at 960px, with tabs above the panel. The FAQ always uses a single reading column capped at 880px. Footer contact changes from horizontal to stacked at the small-mobile breakpoint; footer information adapts from three columns to two, with lawyer identification spanning the first row.
+The office introduction spans the 1120px content frame in two asymmetric columns: the statement and area link sit left; copy and lawyer identification align to the shared right column. At 820px and below it stacks with a horizontal divider. Area selection pairs a vertical selector with the paper reading panel on desktop, becoming three equal tabs above the panel at 820px. FAQ pairs its heading with the question ledger across the 1120px frame; below 820px it stacks. Opening a question gives its row a paper surface and a 1px antique-gold rule. Footer contact changes from horizontal to stacked at the small-mobile breakpoint; footer information adapts from three columns to two, with lawyer identification spanning the first row.
 
 The hero is full-width with centered copy over the architectural engraved raster, with modernist columns replacing the botanical framing. Art uses cover sizing and centers on desktop, displaying the complete panorama below the copy on small mobile. Desktop minimum height is (660px), rising to (700px) at (1600px). Mobile minimum height is (584px), or (560px) on short mobile viewports. Generous bottom padding protects the architectural image from the text.
 
@@ -168,13 +174,13 @@ Desktop sections use varied vertical spacing: 100px for the office introduction,
 
 ## Elevation & Depth
 
-Depth is conveyed by alternating paper, royal-blue and deep-blue bands, fine borders and the illustrated architecture. There are no box shadows. Selected pillars use paper-colored shafts and capitals with blue lettering; inactive pillars retain the blue surface.
+Depth is conveyed by alternating paper, royal-blue and deep-blue bands, fine borders and the illustrated architecture. There are no box shadows. The selected tab uses a gold surface; inactive tabs remain transparent against the blue band.
 
 **The Flat Band Rule.** Use surface color and fine dividers to separate sections. The implemented system has no box-shadow vocabulary.
 
 ## Shapes
 
-Controls have lightly softened corners. Pillars are engraved architectural images with dimensional capitals, fluted shafts and stone bases. The circular client-supplied brand artwork is preserved. The office illustration has a partial offset rule; the selected area has a paper reading surface. FAQ rows remain unframed.
+Controls have lightly softened corners. The circular client-supplied brand artwork is preserved. The blue practice section uses architectural engraving as atmosphere; white reading surfaces have no decorative photo. FAQ rows remain unframed.
 
 ## Components
 
@@ -188,15 +194,15 @@ Header grouping adapts [Watermelon Navigation 1](https://ui.watermelon.sh/block/
 
 ### Area Tabs
 
-Tabs use an original transparent engraved Doric column asset with the area label above it. Images are 272px tall on desktop, 220px on tablet and 164px on mobile. Mobile labels use the body face for legibility. Selected images rise 6px and their underline spans the target; inactive fine-pointer hover rises 3px. Pointer transitions take 200ms; keyboard selection is immediate. Arrow keys, Home and End select and focus a tab; only the selected tab participates in the tab sequence. Reduced motion keeps the selection marker without moving the images.
+Desktop controls form a vertical list, using 28px serif labels and 14px descriptions. On tablet, labels use 18px sans-serif; mobile uses 14px labels and 12px descriptions. The selected gold surface uses a shared Motion layoutId with spring stiffness 380, damping 30 and mass 0.9. Reduced motion and keyboard selection are immediate. Directional arrows rotate to indicate the active panel.
 
 ### Area Panel
 
-Panels present a 32px serif heading, 17px supporting text, a wrapping topic list and a gold contact action on paper. Minimum panel space stabilizes switching. Pointer selection gives a progressive-enhancement 180ms opacity transition using CSS @starting-style; keyboard selection is immediate. Contact messages retain the selected area.
+The paper panel has a 36px serif title (28px on mobile), 17px copy (16px on mobile), topic list and contact link. Pointer selection uses a brief opacity and 14px horizontal transition; keyboard and reduced-motion selection is immediate. Contact messages retain the selected area.
 
 ### Authored Motion
 
-One initial sequence belongs to the hero: the engraving arrives over 700ms, the full upright name over 640ms with a short translation and clipping reveal, then practical copy and controls over 480ms with 60ms stagger steps. Content is already visible at the start. No repeating, parallax or section-by-section entrance effects. Feedback uses --motion-fast (160ms), --motion-ui (200ms) and --ease-out (cubic-bezier(.23, 1, .32, 1)). Reduced motion disables animations, translations and smooth scrolling, retaining readable content and color-selected states.
+The hero illustration settles from 1.025 scale with an opacity transition over 1.6 seconds; copy settles 12px over 800ms. Both begin from visible content. The footer signature reveals once on entering view. Hover and tap feedback uses the installed Motion package; button fills and arrows use CSS transitions. Reduced motion removes transforms, clipping and CSS transitions, while keeping content readable and interaction states distinct.
 
 ### Editorial Footer
 
@@ -204,7 +210,7 @@ The closing composition adapts Watermelon's [Footer 12](https://ui.watermelon.sh
 
 ### FAQ Disclosures
 
-Native details/summary rows form a flat question ledger. Summary text uses blue ink, generous vertical padding and a Lucide chevron (20px); the chevron rotates when open over (200ms). Answer copy uses muted ink and an inset right edge. Browser disclosure markers are suppressed in favor of the drawn icon. Focus remains visible.
+Accessible React buttons with `aria-expanded` form a flat question ledger; Motion opens the answer panel with a brief height and opacity transition. Summary text uses blue ink, generous vertical padding and a Lucide chevron (20px); the chevron rotates when open over 200ms. The open row receives a paper surface and 1px antique-gold left rule; answer copy uses muted ink and an inset edge. Focus remains visible, and reduced motion removes the transition.
 
 ### Browser Surfaces
 
@@ -217,7 +223,8 @@ Selection uses gold with deep-blue text. Scrollbars use blue on paper. The skip 
 - Do use the existing blue, gold and paper roles for new elements.
 - Do keep headings in Libre Baskerville and readable copy and controls in Source Sans 3.
 - Do preserve visible focus, keyboard area selection and reduced-motion behavior.
-- Do adapt pillar tabs into compact pillars on narrow screens.
+- Do keep the three text tabs readable in equal-width mobile tracks.
+- Do reserve illustration for the hero and blue architectural section; keep white reading areas clear.
 
 ### Don't:
 
