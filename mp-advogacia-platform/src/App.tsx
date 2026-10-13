@@ -27,7 +27,7 @@ function Header() {
   const closeMenu = () => { setOpen(false); menuRef.current?.focus(); };
   return <header className="site-header" onKeyDown={event => { if (event.key === 'Escape' && open) closeMenu(); }}>
     <div className="container header-inner">
-      <motion.a href="#inicio" className="brand" aria-label="Marques Pimenta, início" whileHover={reducedMotion ? undefined : { x: 2 }} transition={{ duration: .18 }}><img src="/images/marca.jpg" alt="" width="48" height="48" /><span className="brand-copy"><span className="brand-name">Marques Pimenta</span><span className="brand-description">Advocacia</span></span></motion.a>
+      <motion.a href="#inicio" className="brand" aria-label="Marques Pimenta Advocacia, início" whileHover={reducedMotion ? undefined : { x: 2 }} transition={{ duration: .18 }}><img src="/images/marca-96.webp" alt="" width="48" height="48" /><span className="brand-copy"><span className="brand-name">Marques Pimenta</span>{' '}<span className="brand-description">Advocacia</span></span></motion.a>
       <nav className="main-nav desktop-nav" aria-label="Navegação principal">
         {navItems.map(item => <a key={item.href} href={item.href}>{item.label}</a>)}
       </nav>
@@ -133,7 +133,7 @@ function Footer() {
       </div>
       <div className="footer-info">
         <div className="footer-lawyer"><h3>Advogado responsável</h3><p>{site.person}<br />{site.registration}</p></div>
-        <nav className="footer-nav" aria-label="Navegação do rodapé"><a href="#escritorio">O escritório</a><a href="#areas">Áreas de atuação</a><a href="#duvidas">Dúvidas sobre atendimento</a></nav>
+        <nav className="footer-nav" aria-label="Navegação do rodapé"><a href="#escritorio">O escritório</a><a href="#areas">Áreas de atuação</a><a href="#duvidas">Dúvidas sobre atendimento</a><a href="/privacidade">Privacidade</a></nav>
         <div className="footer-location"><h3>Atendimento online</h3><p>Brasília e Distrito Federal</p><a href={site.whatsapp} target="_blank" rel="noopener noreferrer">Entrar em contato</a></div>
       </div>
       <motion.div className="footer-wordmark" aria-hidden="true" initial={false} whileInView={reducedMotion ? undefined : { clipPath: ['inset(0 0 18% 0)', 'inset(0 0 0% 0)'], y: [12, 0] }} viewport={{ once: true, amount: .6 }} transition={{ duration: .8, ease: [0.23, 1, 0.32, 1] }}>Marques <span>Pimenta</span></motion.div>
@@ -146,7 +146,7 @@ function Hero() {
   const reducedMotion = useReducedMotion();
   return <section id="inicio" className="hero">
     <motion.div className="hero-visual" aria-hidden="true" initial={false} animate={reducedMotion ? undefined : { clipPath: ['inset(0 0 6% 0)', 'inset(0 0 0% 0)'] }} transition={{ duration: 1.2, delay: .7, ease: [0.23, 1, 0.32, 1] }}>
-      <img className="hero-art" src="/images/brasilia-justica.webp" alt="" width="1536" height="1024" fetchPriority="high" />
+      <img className="hero-art" src="/images/brasilia-justica-1536.webp" srcSet="/images/brasilia-justica-640.webp 640w, /images/brasilia-justica-960.webp 960w, /images/brasilia-justica-1536.webp 1536w" sizes="100vw" alt="" width="1536" height="1024" fetchPriority="high" />
     </motion.div>
     <motion.div className="hero-copy" initial={false} animate={reducedMotion ? undefined : { y: [12, 0] }} transition={{ duration: .8, delay: 1, ease: [0.23, 1, 0.32, 1] }}>
       <h1><span>Antes de decidir,</span><span>entenda seus direitos.</span></h1>

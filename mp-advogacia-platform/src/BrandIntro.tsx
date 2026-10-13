@@ -36,7 +36,7 @@ export default function BrandIntro() {
       exit={{ transform: 'translateY(-100%)' }}
       transition={{ duration: 0.65, ease: [0.76, 0, 0.24, 1] }}
     >
-      <img src="/images/marca.jpg" alt="" width="220" height="220" fetchPriority="high" onError={skip} />
+      <img src="/images/marca-440.webp" alt="" width="220" height="220" fetchPriority="high" onError={skip} />
       <button type="button" onClick={skip}>Pular apresentação</button>
     </motion.div>}
   </AnimatePresence>;

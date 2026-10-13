@@ -1,0 +1,53 @@
+# Antislop Delivery Gate
+
+Modo during, escolha explícita mantida na sessão. Direção existente: gravura de Brasília, papel, azul e dourado, Marcellus e DM Sans. Home ENERGY 2 / RHYTHM 3 / MOTION 2; páginas de leitura/erro ENERGY 1 / RHYTHM 1 / MOTION 1. Escala histórica RHYTHM 4 normalizada para o maior nível da escala de três níveis do plugin.
+
+- R-02 PASS: texto de produto sem travessões.
+- R-03 PASS: seis larguras verificadas sem overflow; privacy e 404 mobile inspecionadas.
+- R-17 PASS: sem números promocionais no produto.
+- R-18 PASS: sem depoimentos.
+- R-23 PASS: apenas derivados de assets existentes para a otimização autorizada; originais preservados. Nenhuma arte ou identidade nova.
+- R-24 PASS: âncoras existentes, privacidade HTTP 200 e recuperação de 404 testadas.
+- R-25 PASS: tokens preservados; azul/papel 10.10:1, muted/papel 5.78:1, deep-blue/dourado 8.58:1; foco dos CTAs preservado. Arte inspecionada nas superfícies de texto.
+- R-26 PASS: áreas, FAQ, menu, apresentação e navegação testados. Contatos têm wa.me/tel reais e mensagem específica; não foram enviadas mensagens.
+- R-27 PASS: páginas são conteúdo estático; não há formulário ou fluxo de dados remotos. Erro de rota tem página e recuperação reais.
+- R-28 PASS: FAQ continua pertinente ao atendimento.
+- R-32 PASS: navegação por teclado e foco preservados, incluindo links das novas páginas.
+- R-33 PASS: código editado em arquivos fonte; pipeline de imagem apenas produz derivados binários.
+- R-34 PASS: não há alternância de tema.
+- R-35 PASS: build, 12 testes e click-through no Playwright executados.
+- R-36 PASS: sem promessa de segurança certificada, performance pública ou resultado jurídico.
+- R-37 PASS: direção existente aplicada; nenhuma reconstrução visual sem briefing.
+- R-38 PASS: domínio, rastreamento e canal de privacidade confirmados pelo usuário; demais fatos vêm do conteúdo aprovado do projeto.
+- R-01 PASS: gravura/tratamento de superfície mantêm identidade e legibilidade documentadas.
+- R-04 PASS: ícones existentes têm funções de menu, contato e direção; novos documentos não acrescentam ícones decorativos.
+- R-06 PASS: papéis tipográficos documentados e preservados.
+- R-07 PASS: sem grade decorativa nova; arquitetura pertence à identidade.
+- R-08 PASS: setas existentes orientam ação/seleção.
+- R-09 PASS: sem badges promocionais.
+- R-10 PASS: sem glassmorphism.
+- R-12 PASS: sem sombras de componentes.
+- R-13 PASS: sem glows.
+- R-14 PASS: sem grade de cards uniforme; documentos são leitura por seções.
+- R-19 PASS: animações existentes localizadas; redução de movimento verificada. Novas páginas não exigem JS.
+- R-22 PASS: ilustração de Brasília existente, não genérica; derivados preservam composição.
+- Liveliness/dials PASS: valores e direção registrados acima; novas páginas têm ritmo apropriado à leitura.
+- Liveliness/focal point PASS: título organiza cada abertura; 404 e privacidade têm ação clara.
+- Liveliness/whitespace PASS: capturas mostram separação entre título, seções e navegação.
+- Liveliness/accent PASS: dourado permanece restrito a contato e seleção.
+- Liveliness/motif PASS: tipografia e papel/azul conectam as páginas à identidade.
+- Liveliness/design read PASS: direção e dials declarados nesta revisão; DESIGN.md registra páginas e assets.
+- C-1 PASS: otimização preserva direção; cada novo elemento serve privacidade ou recuperação.
+- C-2 PASS: controles exercitados ou destinos de contato conferidos.
+- C-3 PASS: privacidade explica dados; 404 recupera navegação, sem seções artificiais.
+- C-4 PASS: teclado, mobile, redução de movimento e respostas de erro testados.
+- C-5 PASS: nenhum dado ou depoimento inventado para elevar nota SEO.
+- R-05 PASS: home varia panorama, leitura, seletor e FAQ; documentos não copiam landing page genérica.
+- R-11 PASS: controles com cantos suaves; sem pills generalizadas.
+- R-15 PASS: ações específicas de contato, privacidade e retorno.
+- R-16 PASS: sem buzzwords de marketing de IA.
+- R-20 PASS: gravura e tipografia continuam específicas à direção do projeto.
+- R-21 PASS: tema claro mantido com faixas azuis de marca.
+- R-29 PASS: paleta e tokens preservados.
+- R-30 PASS: nenhuma interface de outro produto copiada.
+- R-31 PASS: layout de leitura e navegação de erro atendem às respectivas tarefas; cores e fonts seguem DESIGN.md.

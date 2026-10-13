@@ -239,3 +239,9 @@ The user chose to restore the engraving integrated across the full background. T
 ## Uniform typography, 2026-10-11
 
 Current authority: Marcellus 400 for the hero, section titles, practice headings, brand and signature; DM Sans 400 for prose and supporting text, 600 for navigation, buttons, tabs and disclosure questions. All fonts are self-hosted. The hero uses uppercase upright lettering, 38–54px desktop, 38px tablet and 27–38px mobile (25px below 360px), with positive tracking. The former italic treatment is removed. Colors, imagery, layout and content are preserved.
+
+## SEO publication, 2026-10-12
+
+The hero uses 640/960/1536px WebP derivatives selected by srcset, with a matching responsive preload. Header and intro use 96px and 440px WebP brand derivatives; the decorative practice background uses a 640px derivative at its established .12 opacity. Original artwork remains in the repository. The sharing preview contains the full panorama on paper at 1200×630.
+
+Privacy and 404 reuse blue headings, paper surfaces, self-hosted fonts and visible focus. Privacy is a calm reading column with section headings and a specific WhatsApp contact action; 404 provides home, practice-area and contact navigation. The footer adds a factual privacy link. No new brand direction or ornamental assets were introduced.

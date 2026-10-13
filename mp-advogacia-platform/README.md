@@ -1,6 +1,6 @@
 # Marques Pimenta
 
-Site institucional de pagina unica em React 19, Vite 8 e TypeScript. Inspirado na composicao do Engraved Illustration Landing Page Template, com azul, dourado e gravura original de Brasilia. Areas em pilares selecionaveis, FAQ expansivel e WhatsApp com a area escolhida na mensagem. Sem formulario.
+Site institucional em React 19, Vite 8 e TypeScript, com home, pagina de privacidade e pagina 404 estaticas. Inspirado na composicao do Engraved Illustration Landing Page Template, com azul, dourado e gravura original de Brasilia. Areas em pilares selecionaveis, FAQ expansivel e WhatsApp com a area escolhida na mensagem. Sem formulario ou rastreamento.
 
 ## Desenvolvimento
 
@@ -11,16 +11,19 @@ npm ci
 npm run dev
 ```
 
-Servidor local: http://localhost:4322 . `npm run build` verifica tipos, compila os assets e pre-renderiza a home com React. `npm test` verifica o resultado de `dist/`; execute depois do build. `npm run preview` serve a build em http://localhost:4323 .
+Servidor local: http://localhost:4322 . `npm run build` verifica tipos, compila os assets e pre-renderiza as paginas com React. `npm test` verifica `dist/`, validacao de SITE_URL e respostas HTTP da previa; execute depois do build. `npm run preview` serve a build em http://localhost:4323, aplica os headers gerados e devolve 404 para enderecos inexistentes.
 
 ## Publicacao
 
-No Cloudflare Pages, usar `npm run build`, diretorio `dist` e Node >=22.12. A producao e estatica, sem servidor Node. O dominio publico ainda nao foi confirmado: definir `SITE_URL` com a origem HTTPS real no ambiente de build para emitir canonical, Open Graph absoluto e `sitemap.xml`. Sem essa variavel, o build deixa esses campos ausentes e nao inventa um dominio.
+No Cloudflare Pages, usar `npm run build`, diretorio `dist` e Node >=22.12. A producao e estatica, sem servidor Node. O dominio confirmado e `https://escritoriomp.com.br`, definido em `src/data/site.ts`. A build sempre gera canonical, Open Graph/Twitter, JSON-LD e sitemap. `SITE_URL` pode sobrescrever a origem para outro dominio HTTPS aprovado; credenciais, portas, caminhos, queries, fragmentos e hosts locais sao recusados.
+
+A build gera `_headers` para Cloudflare Pages e `404.html` para impedir fallback da home em rotas inexistentes. Os scripts inline recebem hashes SHA256 na CSP; estilos inline sao permitidos para Motion. Assets com hash recebem cache de um ano, imagens um dia, somente em URLs de arquivos existentes. Verifique DNS, certificado, redirecionamento HTTP para HTTPS, host preferencial e headers depois de configurar o dominio em Pages. HSTS nao abrange subdominios nem solicita preload.
 
 ## Conteudo e identidade
 
 - `src/data/site.ts`: contato, advogado responsavel, areas e FAQ.
 - `src/App.tsx`: pagina e interacoes.
+- `src/PrivacyPage.tsx`: aviso de privacidade e contato confirmado para pedidos sobre dados.
 - `src/styles/global.css`: tokens, estilos e breakpoints.
 - `scripts/prerender.mjs`: HTML estatico e metadados de publicacao.
 - `PRODUCT.md`, `DESIGN.md` e `.impeccable/surface.md`: briefing e direcao visual.
@@ -37,4 +40,4 @@ O rodape adapta o [Footer 12 do Watermelon](https://ui.watermelon.sh/block/foote
 
 ## Auditoria e testes
 
-O [registro de 12/10/2026](docs/audits/2026-10-12/README.md) inclui auditoria SEOmator 5.1.0 com renderizacao e paridade mobile, artefatos brutos, triagem de falsos positivos, testes de SITE_URL e pendencias antes da publicacao. A nota de localhost nao comprova o comportamento do dominio publico.
+O [registro inicial de 12/10/2026](docs/audits/2026-10-12/README.md) e o [registro das correcoes](docs/audits/2026-10-12/remediation/README.md) incluem auditoria SEOmator 5.1.0 com renderizacao e paridade mobile, artefatos brutos, comparacao por regra, testes de SITE_URL e pendencias de infraestrutura. A nota de localhost nao comprova o comportamento do dominio publico.

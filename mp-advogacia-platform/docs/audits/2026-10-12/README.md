@@ -4,6 +4,8 @@ Data local: 12/10/2026, America/Sao_Paulo. Código auditado: `f7b5f36533929ee4dd
 
 O SEOmator 5.1.0 atribuiu **88/100 (B)** à build local: **271 aprovações, 44 avisos, 16 falhas e 34 regras não medidas**. A execução terminou com código 0. A nota é um diagnóstico automatizado de localhost, não uma aprovação do deploy público nem uma medida de posicionamento no Google.
 
+Este é o registro anterior às correções. O [registro posterior](remediation/README.md) contém o domínio confirmado, as alterações implementadas e a situação atual das pendências.
+
 ## Ambiente e reprodução
 
 Node 24.21.0, npm 11.19.0, React 19, Vite 8 e TypeScript. O projeto é uma home institucional pré-renderizada, sem formulário, blog ou busca interna. Não foi informado domínio público. Por pedido explícito de auditoria no código, foi usada a build local, apesar da preferência da skill e do vault por auditar produção.

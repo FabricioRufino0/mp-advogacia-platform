@@ -41,6 +41,21 @@ html { scrollbar-color: var(--blue) var(--paper); }
 .container { width: min(1120px, calc(100% - 80px)); margin-inline: auto; }
 .skip-link { position: fixed; top: 8px; left: 8px; z-index: 100; background: var(--gold); padding: 12px 20px; transform: translateY(-150%); }
 .skip-link:focus { transform: none; }
+.error-page { padding-block: 80px; max-width: 760px; }
+.error-page h1 { color: var(--blue); font-size: clamp(32px, 6vw, 48px); margin-block: 24px; }
+.error-page p { max-width: 60ch; }
+.error-page .button { margin-top: 32px; }
+.error-brand { padding-top: 32px; font-family: var(--serif); color: var(--blue); }
+.error-navigation { display: flex; flex-wrap: wrap; align-items: center; gap: 24px; margin-top: 32px; }
+.error-navigation a { min-height: 44px; display: inline-flex; align-items: center; }
+.error-navigation .button { margin-top: 0; }
+.information-page { max-width: 760px; padding-block: 64px 80px; }
+.information-page h1 { color: var(--blue); font-size: clamp(36px, 6vw, 48px); margin-bottom: 24px; }
+.information-page section { margin-top: 40px; }
+.information-page h2 { color: var(--blue); font-size: 28px; margin-bottom: 16px; }
+.information-page p + p { margin-top: 16px; }
+.information-page .button { margin-top: 24px; }
+.text-link { text-decoration: underline; text-underline-offset: 4px; }
 .brand-intro { display: none; position: fixed; inset: 0; z-index: 90; place-items: center; background: var(--paper); }
 html[data-intro] .brand-intro { display: grid; }
 .brand-intro img { width: clamp(160px, 24vw, 220px); height: auto; border-radius: 50%; }
@@ -106,7 +121,7 @@ html[data-intro] .brand-intro { display: grid; }
 .office-link { display: inline-flex; align-items: center; gap: 12px; min-height: 44px; margin-top: 26px; color: var(--blue); }
 .office-link:hover { text-decoration: underline; text-underline-offset: 5px; }
 .practice-section { position: relative; isolation: isolate; overflow: hidden; background: var(--blue); color: var(--paper); padding-block: 72px 80px; }
-.practice-section::before { content: ''; position: absolute; z-index: -2; top: 0; right: -4vw; bottom: 0; width: min(620px, 48vw); background: url('/images/justica-colunata.webp') center / cover no-repeat; opacity: .12; mix-blend-mode: screen; pointer-events: none; }
+.practice-section::before { content: ''; position: absolute; z-index: -2; top: 0; right: -4vw; bottom: 0; width: min(620px, 48vw); background: url('/images/justica-colunata-640.webp') center / cover no-repeat; opacity: .12; mix-blend-mode: screen; pointer-events: none; }
 .practice-section::after { content: ''; position: absolute; z-index: -1; top: 28px; right: max(20px, calc((100% - 1120px) / 2)); bottom: 28px; left: max(20px, calc((100% - 1120px) / 2)); border-top: 1px solid rgba(226, 196, 140, .26); border-bottom: 1px solid rgba(226, 196, 140, .16); pointer-events: none; }
 .practice-section > .container { position: relative; z-index: 1; max-width: 1120px; }
 .practice-heading { display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1.4fr); align-items: center; gap: 48px; padding-bottom: 40px; }
