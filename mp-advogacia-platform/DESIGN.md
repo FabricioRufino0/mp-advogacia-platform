@@ -16,31 +16,31 @@ colors:
   dark-line: "#536a91"
 typography:
   display:
-    fontFamily: "Libre Baskerville, Georgia, serif"
-    fontSize: "76px"
+    fontFamily: "Marcellus, Georgia, serif"
+    fontSize: "68px"
     fontWeight: 400
     lineHeight: 1.08
     letterSpacing: "-0.025em"
   headline:
-    fontFamily: "Libre Baskerville, Georgia, serif"
-    fontSize: "40px"
+    fontFamily: "Marcellus, Georgia, serif"
+    fontSize: "44px"
     fontWeight: 400
     lineHeight: 1.2
     letterSpacing: "0"
   title:
-    fontFamily: "Libre Baskerville, Georgia, serif"
+    fontFamily: "Marcellus, Georgia, serif"
     fontSize: "33px"
     fontWeight: 400
     lineHeight: 1.25
     letterSpacing: "0"
   body:
-    fontFamily: "Source Sans 3, Arial, sans-serif"
+    fontFamily: "DM Sans, Arial, sans-serif"
     fontSize: "16px"
     fontWeight: 400
     lineHeight: 1.65
     letterSpacing: "0"
   label:
-    fontFamily: "Source Sans 3, Arial, sans-serif"
+    fontFamily: "DM Sans, Arial, sans-serif"
     fontSize: "14px"
     fontWeight: 700
     lineHeight: 1.4
@@ -103,7 +103,7 @@ components:
 
 The homepage uses an editorial composition in blue, antique gold and paper. Practice selection is a vertical list of large serif labels beside a paper reading panel on desktop. At 820px and below the controls become three horizontal tracks with sans-serif labels. A gold selected surface moves with a spring adapted from [Watermelon Continuous Tabs](https://ui.watermelon.sh/animated-components/continuous-tabs); source was retrieved through its MCP. Tab orientation follows the layout, and arrow keys, Home and End preserve focus and immediate selection.
 
-Buttons have a sliding deep-blue fill and directional arrow, with keyboard focus and reduced-motion alternatives. The header is sticky. FAQ uses two columns on desktop and stacks below 820px. The hero engraving settles once after the logo intro; the footer signature reveals once when it enters view. No additional dependencies were installed.
+Buttons have a sliding deep-blue fill and directional arrow, with keyboard focus and reduced-motion alternatives. The header is sticky. FAQ uses two columns on desktop and stacks below 820px. The hero engraving settles once after the logo intro; the footer signature reveals once when it enters view. Typography is self-hosted through Fontsource packages for Marcellus and DM Sans.
 
 References reviewed: [21st engraved illustration template](https://21st.dev/@kedhareswer/templates/engraved-illustration-landing-page-template), [Skiper catalogue](https://skiper-ui.com/components?source=free), and [Motion accessibility](https://motion.dev/docs/react-accessibility). 21st and Skiper were reference research; no source or paid assets from those catalogues were copied.
 
@@ -113,7 +113,7 @@ References reviewed: [21st engraved illustration template](https://21st.dev/@ked
 
 **Creative North Star: "Engraved Brasilia"**
 
-The engraved architectural world ties Marques Pimenta to Brasilia through blue ink, antique gold and near-white paper. Libre Baskerville gives the brand and headings a measured literary voice; Source Sans 3 keeps practical information and controls direct.
+The engraved architectural world ties Marques Pimenta to Brasilia through blue ink, antique gold and near-white paper. Marcellus gives the brand and headings a measured literary voice; DM Sans keeps practical information and controls direct.
 
 The built page varies a panoramic hero, asymmetrical office introduction, blue area-selector band with paper reading panel, and generous FAQ ledger. Its expression is restrained (ENERGY 2 / RHYTHM 4 / MOTION 2): one engraving carries the opening, architectural texture anchors the blue band, and paper sections prioritize reading. Motion acknowledges interaction. Taste settings are DESIGN_VARIANCE 5 / MOTION_INTENSITY 3 / VISUAL_DENSITY 4.
 
@@ -154,13 +154,13 @@ Blue ink gives the page its structure; gold is a warm contact accent against the
 
 ## Typography
 
-Libre Baskerville is self-hosted and backed by Georgia and serif; Source Sans 3 is self-hosted and backed by Arial and sans-serif. Headings are regular-weight and balanced. The entire brand name is upright. Hero and closing wordmark tracking is -0.025em; other roles use zero tracking.
+Marcellus is self-hosted and backed by Georgia and serif; DM Sans is self-hosted and backed by Arial and sans-serif. Headings are regular-weight and balanced. The entire brand name is upright. Hero tracking is .035em on desktop and .025em on mobile; the closing wordmark uses -0.025em.
 
-The hero display is 76px. Section headings share a 40px desktop, 34px tablet and 30px mobile scale with 1.25 line height and -0.02em tracking. Practice-panel titles use 36px desktop and 28px mobile. Reading copy is 17px desktop and 16px mobile, with 1.65 line height and a 65ch maximum. Supporting section prose is 17px desktop and 16px mobile. Body text uses pretty wrapping; the main title retains balanced wrapping. Loaded weights are Libre Baskerville 400 and Source Sans 3 400, 600 and 700; navigation, buttons and FAQ questions use 600.
+The hero display scales from 38px to 54px on desktop, uses 38px on tablet and 27px to 38px on mobile (25px below 360px). Section headings share a 44px desktop, 34px tablet and 30px mobile scale with 1.25 line height and -0.02em tracking. Practice-panel titles use 36px desktop and 28px mobile. Reading copy is 17px desktop and 16px mobile, with 1.65 line height and a 65ch maximum. Supporting section prose is 17px desktop and 16px mobile. Body text uses pretty wrapping; the main title retains balanced wrapping. Loaded weights are Marcellus 400 normal and DM Sans 400 and 600; navigation, buttons and FAQ questions use 600.
 
-The header wordmark is 20px desktop, 18px tablet, 16px mobile and 14px below 360px, paired with the factual descriptor “Advocacia” in small uppercase sans-serif. The header uses an 88px desktop and 76px mobile height; its mobile menu starts below the actual header boundary. Contact is an outlined control. Office, practice and FAQ desktop columns share the .85fr / 1.4fr grid and 48px gap; office stacks below 820px. Lawyer identification is a vertically aligned group.
+The header wordmark is 24px desktop, 18px tablet, 19px mobile and 16px below 360px, paired with the factual descriptor “Advocacia” in small uppercase sans-serif. The header uses an 88px desktop and 76px mobile height; its mobile menu starts below the actual header boundary. Contact is an outlined control. Office, practice and FAQ desktop columns share the .85fr / 1.4fr grid and 48px gap; office stacks below 820px. Lawyer identification is a vertically aligned group.
 
-**The Two Voices Rule.** Use Libre Baskerville for brand and headings, Source Sans 3 for body and operational controls. Mobile area tabs switch to Source Sans 3 for compact scanning.
+**The Two Voices Rule.** Use Marcellus for brand and headings, DM Sans for body and operational controls. Mobile area tabs switch to DM Sans for compact scanning.
 
 ## Layout
 
@@ -168,9 +168,9 @@ The desktop content frame caps at (1120px) with total outer subtraction (80px). 
 
 The office introduction spans the 1120px content frame in two asymmetric columns: the statement and area link sit left; copy and lawyer identification align to the shared right column. At 820px and below it stacks with a horizontal divider. Area selection pairs a vertical selector with the paper reading panel on desktop, becoming three equal tabs above the panel at 820px. FAQ pairs its heading with the question ledger across the 1120px frame; below 820px it stacks. Opening a question gives its row a paper surface and a 1px antique-gold rule. Footer contact changes from horizontal to stacked at the small-mobile breakpoint; footer information adapts from three columns to two, with lawyer identification spanning the first row.
 
-The hero is full-width with centered copy over the architectural engraved raster, with modernist columns replacing the botanical framing. Art uses cover sizing and centers on desktop, displaying the complete panorama below the copy on small mobile. Desktop minimum height is (660px), rising to (700px) at (1600px). Mobile minimum height is (584px), or (560px) on short mobile viewports. Generous bottom padding protects the architectural image from the text.
+The hero centers upright, uppercase text over the panoramic engraving. The headline reads: Antes de decidir, entenda seus direitos. The image keeps its original aspect ratio and anchors to the bottom; minimum height is 840px, rising to 960px at 1600px. At 820px and below the text spans the available width and the panorama sits beneath it. Bottom padding of 280px on tablet and 210px on mobile protects the engraving from the text.
 
-Desktop sections use varied vertical spacing: 100px for the office introduction, 72px/80px for areas, 96px for FAQ and 64px/24px for the footer. Mobile sections use 40px to 56px. The header is 82px minimum on desktop and 72px on tablet/mobile. It remains in normal page flow. Menu navigation unfolds immediately below it on tablet/mobile.
+Desktop sections use varied vertical spacing: 100px for the office introduction, 72px/80px for areas, 96px for FAQ and 64px/24px for the footer. Mobile sections use 40px to 56px. The header is 88px on desktop and 76px on tablet/mobile. It is sticky and reserves its height in page flow. Menu navigation unfolds immediately below it on tablet/mobile.
 
 ## Elevation & Depth
 
@@ -202,7 +202,7 @@ The paper panel has a 36px serif title (28px on mobile), 17px copy (16px on mobi
 
 ### Authored Motion
 
-The hero illustration settles from 1.025 scale with an opacity transition over 1.6 seconds; copy settles 12px over 800ms. Both begin from visible content. The footer signature reveals once on entering view. Hover and tap feedback uses the installed Motion package; button fills and arrows use CSS transitions. Reduced motion removes transforms, clipping and CSS transitions, while keeping content readable and interaction states distinct.
+The hero illustration reveals its bottom edge through a 6% clip over 1.2 seconds; copy settles 12px over 800ms. Both begin from visible content. The footer signature reveals once on entering view. Hover and tap feedback uses the installed Motion package; button fills and arrows use CSS transitions. Reduced motion removes transforms, clipping and CSS transitions, while keeping content readable and interaction states distinct.
 
 ### Editorial Footer
 
@@ -221,7 +221,7 @@ Selection uses gold with deep-blue text. Scrollbars use blue on paper. The skip 
 ### Do:
 
 - Do use the existing blue, gold and paper roles for new elements.
-- Do keep headings in Libre Baskerville and readable copy and controls in Source Sans 3.
+- Do keep headings in Marcellus and readable copy and controls in DM Sans.
 - Do preserve visible focus, keyboard area selection and reduced-motion behavior.
 - Do keep the three text tabs readable in equal-width mobile tracks.
 - Do reserve illustration for the hero and blue architectural section; keep white reading areas clear.
@@ -231,3 +231,11 @@ Selection uses gold with deep-blue text. Scrollbars use blue on paper. The skip 
 - Don't introduce shadows as a substitute for the current flat band structure.
 - Don't add card grids, inputs or form styles to this record: none are implemented.
 - Don't use fluid reading text as decoration; only the closing signature scales within bounded sizes.
+
+## Hero restored, 2026-10-10
+
+The user chose to restore the engraving integrated across the full background. The hero now centers the headline, supporting text, gold contact action and discreet practice-area link above the panorama. Marcellus and DM Sans remain. The image retains its original aspect ratio and anchors to the bottom, with reserved space below the copy on mobile. The split image panel and paired rectangular actions have been removed.
+
+## Uniform typography, 2026-10-11
+
+Current authority: Marcellus 400 for the hero, section titles, practice headings, brand and signature; DM Sans 400 for prose and supporting text, 600 for navigation, buttons, tabs and disclosure questions. All fonts are self-hosted. The hero uses uppercase upright lettering, 38–54px desktop, 38px tablet and 27–38px mobile (25px below 360px), with positive tracking. The former italic treatment is removed. Colors, imagery, layout and content are preserved.

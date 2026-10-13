@@ -1,10 +1,8 @@
 import { createRoot, hydrateRoot } from 'react-dom/client';
 import App from './App';
-import '@fontsource/newsreader/latin-400.css';
-import '@fontsource/newsreader/latin-400-italic.css';
-import '@fontsource/public-sans/latin-400.css';
-import '@fontsource/public-sans/latin-600.css';
-import '@fontsource/public-sans/latin-700.css';
+import '@fontsource/marcellus/latin-400.css';
+import '@fontsource/dm-sans/latin-400.css';
+import '@fontsource/dm-sans/latin-600.css';
 import './styles/global.css';
 
 const root = document.getElementById('root')!;

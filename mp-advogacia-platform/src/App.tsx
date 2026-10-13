@@ -145,13 +145,17 @@ function Footer() {
 function Hero() {
   const reducedMotion = useReducedMotion();
   return <section id="inicio" className="hero">
-    <motion.img className="hero-art" src="/images/brasilia-justica.webp" alt="" width="1536" height="1024" fetchPriority="high" initial={false} animate={reducedMotion ? undefined : { opacity: [.7, 1], scale: [1.025, 1] }} transition={{ duration: 1.6, delay: .7, ease: [0.23, 1, 0.32, 1] }} />
+    <motion.div className="hero-visual" aria-hidden="true" initial={false} animate={reducedMotion ? undefined : { clipPath: ['inset(0 0 6% 0)', 'inset(0 0 0% 0)'] }} transition={{ duration: 1.2, delay: .7, ease: [0.23, 1, 0.32, 1] }}>
+      <img className="hero-art" src="/images/brasilia-justica.webp" alt="" width="1536" height="1024" fetchPriority="high" />
+    </motion.div>
     <motion.div className="hero-copy" initial={false} animate={reducedMotion ? undefined : { y: [12, 0] }} transition={{ duration: .8, delay: 1, ease: [0.23, 1, 0.32, 1] }}>
-      <h1>Antes de decidir,<br /><em>entenda seus direitos.</em></h1>
-      <p className="hero-lead">Uma questão de trabalho, um contrato ou uma dúvida da vida civil. Converse com a Marques Pimenta sobre a orientação jurídica de que você precisa.</p>
+      <h1><span>Antes de decidir,</span><span>entenda seus direitos.</span></h1>
+      <p className="hero-lead">Conte o que aconteceu. A Marques Pimenta oferece orientação jurídica em questões de trabalho, contratos e vida civil.</p>
+      <div className="hero-actions">
+        <WhatsAppLink className="button-primary" />
+        <a className="hero-explore" href="#areas">Áreas de atuação<ArrowRight size={16} aria-hidden="true" /></a>
+      </div>
       <p className="hero-location">Atendimento online em Brasília e no Distrito Federal.</p>
-      <WhatsAppLink className="button-primary" />
-      <a className="hero-explore" href="#areas">Conheça as áreas de atuação<ArrowRight size={16} aria-hidden="true" /></a>
     </motion.div>
   </section>;
 }
