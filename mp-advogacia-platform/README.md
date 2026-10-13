@@ -31,6 +31,10 @@ Marques Pimenta e o nome da marca. Halson Hugo Pimenta, OAB/DF 69.858, e o advog
 
 Referencia aprovada: https://21st.dev/@kedhareswer/templates/engraved-illustration-landing-page-template . O endpoint de instalacao retornou Component not found; a implementacao adapta sua composicao visual, com codigo e ilustracao proprios, sem incorporar o SVG ou o conteudo ficticio do demo.
 
-`public/images/brasilia-justica.webp` foi editada com o image_gen integrado para incluir uma interpretacao da Justica de Brasilia, sentada com a espada no colo. A gravura foi exportada para WebP (1536 x 1024). O prompt e a origem constam em `.impeccable/assets.md` e no arquivo JSON junto ao asset. As versoes anteriores foram preservadas. `marca.jpg` e o asset pre-existente fornecido pelo cliente. Libre Baskerville e Source Sans 3 sao servidas localmente via Fontsource.
+`public/images/brasilia-justica.webp` foi editada com o image_gen integrado para incluir uma interpretacao da Justica de Brasilia, sentada com a espada no colo. A gravura foi exportada para WebP (1536 x 1024). O prompt e a origem constam em `.impeccable/assets.md` e no arquivo JSON junto ao asset. As versoes anteriores foram preservadas. `marca.jpg` e o asset pre-existente fornecido pelo cliente. Marcellus 400 e DM Sans 400/600 sao servidas localmente via Fontsource.
 
-O rodape adapta o [Footer 12 do Watermelon](https://ui.watermelon.sh/block/footer-12), com o codigo do registry consultado antes da implementacao. O fechamento editorial usa os contatos e a identificacao reais do escritorio. Animacoes em CSS concentram a entrada no topo e respostas curtas nos controles; teclado e movimento reduzido mantem os estados imediatos. Nenhuma biblioteca adicional foi instalada.
+O rodape adapta o [Footer 12 do Watermelon](https://ui.watermelon.sh/block/footer-12), com o codigo do registry consultado antes da implementacao. O fechamento editorial usa os contatos e a identificacao reais do escritorio. Motion e CSS concentram a entrada no topo e respostas curtas nos controles; teclado e movimento reduzido preservam os estados acessiveis.
+
+## Auditoria e testes
+
+O [registro de 12/10/2026](docs/audits/2026-10-12/README.md) inclui auditoria SEOmator 5.1.0 com renderizacao e paridade mobile, artefatos brutos, triagem de falsos positivos, testes de SITE_URL e pendencias antes da publicacao. A nota de localhost nao comprova o comportamento do dominio publico.
