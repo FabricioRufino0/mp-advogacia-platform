@@ -34,8 +34,11 @@ test('publication metadata consistently uses the confirmed HTTPS domain', async 
 test('privacy page explains the confirmed tracking and contact choices', async () => {
   const html = await readFile('dist/privacidade.html', 'utf8');
   assert.ok(html.includes('Privacidade'));
+  assert.ok(html.includes('<title>Privacidade | Marques Pimenta Advocacia</title>'));
   assert.ok(html.includes('cookies de rastreamento'));
   assert.ok(html.includes('https://wa.me/5561986684723?text='));
+  assert.ok(html.includes('property="og:image:width" content="1200"'));
+  assert.ok(html.includes('property="og:image:height" content="630"'));
   assert.ok(html.includes('rel="canonical"'));
   assert.ok((await readFile('dist/index.html', 'utf8')).includes('href="/privacidade"'));
   assert.ok((await readFile('dist/sitemap.xml', 'utf8')).includes('/privacidade</loc>'));
