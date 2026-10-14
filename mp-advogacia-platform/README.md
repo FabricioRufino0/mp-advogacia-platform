@@ -19,6 +19,8 @@ No Cloudflare Pages, usar `npm run build`, diretorio `dist` e Node >=22.12. A pr
 
 A build gera `_headers` para Cloudflare Pages e `404.html` para impedir fallback da home em rotas inexistentes. Os scripts inline recebem hashes SHA256 na CSP; estilos inline sao permitidos para Motion. Assets com hash recebem cache de um ano, imagens um dia, somente em URLs de arquivos existentes. Verifique DNS, certificado, redirecionamento HTTP para HTTPS, host preferencial e headers depois de configurar o dominio em Pages. HSTS nao abrange subdominios nem solicita preload.
 
+Publicacao inicial em Cloudflare Pages: [mp-advogacia-platform.pages.dev](https://mp-advogacia-platform.pages.dev/), com build automatica a partir de `main`. O dominio aprovado `escritoriomp.com.br` ainda nao esta conectado: a conta Cloudflare exige transferir o DNS para associar o dominio, e a consulta atual retorna NXDOMAIN. A decisao e os testes publicos estao em [auditoria e publicacao de 14/10/2026](docs/audits/2026-10-14/README.md).
+
 ## Conteudo e identidade
 
 - `src/data/site.ts`: contato, advogado responsavel, areas e FAQ.
